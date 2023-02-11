@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.newta.model.location
+import com.example.newta.model.LatLngModel
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }else
         {
             val routeId = database.push().key
-            val STD = location(routeId.toString(),lat.toDouble(),long.toDouble() )
+            val STD = LatLngModel(routeId.toString(),lat.toDouble(),long.toDouble() )
             database.child(routeId.toString()).setValue(STD)
             database.child(routeId.toString()).setValue(STD).addOnCompleteListener {
                 Toast.makeText(this,"Success", Toast.LENGTH_SHORT).show()

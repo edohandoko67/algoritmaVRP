@@ -1,6 +1,6 @@
 package com.example.newta.model
 
-data class location(
+data class LatLngModel(
     var id: String,
     var latitude: Double,
     var longitude: Double
