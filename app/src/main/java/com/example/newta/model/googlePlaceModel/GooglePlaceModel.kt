@@ -6,9 +6,9 @@ data class GooglePlaceModel(
     @field:Json(name = "business_status")
     val businessStatus: String?,
 
-    @field:Json(name = "geometry")
-
-    val geometry: GeometryModel?,
+//    @field:Json(name = "geometry")
+//
+//    val geometry: GeometryModel?,
 
     @field:Json(name = "icon")
 
@@ -22,9 +22,9 @@ data class GooglePlaceModel(
 
     val obfuscatedType: List<Any>?,
 
-    @field:Json(name = "photos")
-
-    val photos: List<PhotoModel>?,
+//    @field:Json(name = "photos")
+//
+//    val photos: List<PhotoModel>?,
 
     @field:Json(name = "place_id")
 
