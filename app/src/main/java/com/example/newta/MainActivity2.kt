@@ -10,7 +10,9 @@ import android.os.Bundle
 import android.provider.ContactsContract.Data
 import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.newta.model.Distance
 import com.example.newta.model.LatLngModel
 import com.example.newta.model.MapDataModel
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -31,12 +33,15 @@ import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
+import kotlin.math.roundToInt
 
 
 class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var btnNearestNeighbor: Button
+    private lateinit var textJarakContent: TextView
     private lateinit var locationList: List<Location>
+    private var distance: Double = 0.0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +50,6 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
             .getApplicationInfo(applicationContext.packageName, PackageManager.GET_META_DATA)
         val value = ai.metaData["com.google.android.geo.API_KEY"]
         val apiKey = value.toString()
-        Log.i("APIKEY", apiKey)
 
         if (!Places.isInitialized()) {
             Places.initialize(applicationContext, apiKey)
@@ -56,6 +60,7 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
 
         val database = Firebase.database.reference
         btnNearestNeighbor = findViewById(R.id.btn_nearest_neighbor)
+        textJarakContent = findViewById(R.id.text_jarak_content)
         locationList = ArrayList()
 
         database.child("db").addValueEventListener(object : ValueEventListener {
@@ -77,7 +82,6 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
                     val markerOptions = MarkerOptions().position(data).title(title)
                     mMap.addMarker(markerOptions)
                 }
-                Log.i("Waypoint", nearest.toString())
 
                 val originLocation = LatLng(nearest[0].latitude, nearest[0].longitude)
                 val destinationLocation =
@@ -88,11 +92,10 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
 
 
                 btnNearestNeighbor.setOnClickListener {
-//                    Log.i("Waypoint", nearest.toString())
                     val urll = getDirectionURL(originLocation, nearest, destinationLocation, apiKey)
-//                    Log.i("Waypoint", urll);
                     GetDirection(urll).execute()
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(originLocation, 14F))
+
                 }
             }
 
@@ -150,41 +153,6 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
                 "&key=$secret"
     }
 
-
-//    private fun calculateDistance(a: LatLngModel, b: LatLngModel): Double {
-//        val xDiff = a.latitude - b.latitude
-//        val yDiff = a.longitude - b.longitude
-//        return Math.sqrt(xDiff * xDiff + yDiff * yDiff)
-//    }
-//
-//    private fun nearestNeighbor(dataList: List<LatLngModel>): List<LatLngModel> {
-//        var nearestData = dataList[0]
-//        var nearestDistance = Float.MAX_VALUE
-//
-//        //Mencari data terdekat
-//        for (data in dataList) {
-//            val distance = calculateDistance(currentLocation, data.latLng)
-//            if (distance < nearestDistance) {
-//                nearestData = data
-//                nearestDistance = distance
-//            }
-//        }
-//
-//        return nearestData
-//    }
-
-//    private fun nearestNeighbor(coord: LatLngModel, coordinates: List<LatLngModel>): List<LatLngModel> {
-//        return coordinates
-//            .map { Pair(it, calculateDistance(coord, it)) }
-//            .sortedBy { it.second }
-//            .map { it.first }
-//    }
-
-    //    private fun calculateDistance(from: LatLng, to: LatLng): Float {
-//        val results = floatArrayOf(0f)
-//        Location.distanceBetween(from.latitude, from.longitude, to.latitude, to.longitude, results)
-//        return results[0]
-//    }
     @SuppressLint("StaticFieldLeak")
     private inner class GetDirection(val url: String) :
         AsyncTask<Void, Void, List<List<LatLng>>>() {
@@ -200,19 +168,29 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
                 val json = JSONObject(data)
                 val routes = json.getJSONArray("routes")
                 val path = ArrayList<LatLng>()
-//                for (i in 0 until respObj.routes[0].legs[0].steps.size) {
-//                    path.addAll(decodePolyline(respObj.routes[0].legs[0].steps[i].polyline.points))
-//                }
                 for (i in 0 until routes.length()) {
                     val route = routes.getJSONObject(i)
                     val overviewPolyline = route.getJSONObject("overview_polyline")
                     val points = overviewPolyline.getString("points")
+
+                    val legs = route.getJSONArray("legs");
+
+                    for (j in 0 until legs.length()) {
+                        distance += route.getJSONArray("legs")
+                            .getJSONObject(j)
+                            .getJSONObject("distance")
+                            .getInt("value")
+                    }
+
+
+
                     val decodedPoints = decodePolyline(points)
                     path.addAll(decodedPoints);
-                    // Add the decoded points to a list of routes
                 }
                 result.add(path)
-                Log.i("result", result.toString())
+
+                textJarakContent.setText(
+                    (((distance / 1000) * 100.0).roundToInt()/100.0).toString() + " km")
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -225,10 +203,6 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
                     .color(Color.BLUE)
                     .width(10f)
                     .addAll(route)
-//                lineoption.addAll(result[i])
-//                lineoption.width(10f)
-//                lineoption.color(Color.BLUE)
-//                lineoption.geodesic(true)
                 mMap.addPolyline(lineoption)
             }
         }
