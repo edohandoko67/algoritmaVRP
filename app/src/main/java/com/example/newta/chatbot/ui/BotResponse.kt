@@ -42,7 +42,8 @@ object BotResponse {
             message.contains("petunjuk") -> {
                 "1. Sampah kecil warna hijau untuk ukuran 3kg" +
                 "\n2. Sampah sedang warna biru untuk ukuran 5kg" +
-                "\n3. Sampah besar warna merah untuk ukuran 10kg"
+                "\n3. Sampah besar warna merah untuk ukuran 10kg" +
+                "\n Silakan ketik 'wa' untuk menuju kepada petugas"
             }
 
             message.contains("whatsapp") || message.contains("wa") -> {

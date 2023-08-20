@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="2"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textViewWeek"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="Minggu ke-" />
+            <TextView
+                android:id="@+id/textViewWeek2"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:text="Minggu ke-" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textTotal"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="Total (kg)" />
+            <TextView
+                android:id="@+id/textResultTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="TextView" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textTime"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="Tanggal  " />
+            <TextView
+                android:id="@+id/textResultTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="TextView" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textPlat"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="No Plat  " />
+            <TextView
+                android:id="@+id/textResultPlat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="TextView" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textJarak"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="Jarak  " />
+            <TextView
+                android:id="@+id/textResultJarak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="TextView" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textWaktu"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="Waktu  " />
+            <TextView
+                android:id="@+id/textResultWaktu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="TextView" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textBahanBakar"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="Bahan Bakar (L)  " />
+            <TextView
+                android:id="@+id/textResultTimeBahanBakar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="TextView" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textPriceBahanBakar"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="Harga Bahan Bakar (Rp)  " />
+            <TextView
+                android:id="@+id/textResultTimePriceBahanBakar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/colorUtama"
+                android:text="TextView" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/editStory"
+            android:src="@drawable/ic_edit"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_height="70dp"/>
+
+        <ImageView
+            android:id="@+id/deleteStory"
+            android:src="@drawable/ic_delete"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="70dp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="950dp"
     android:background="@drawable/waste2"
-    tools:context=".activity.MainActivity">
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    tools:context=".UI.officer.AddRuteOffActivity">
 
     <TextView
         android:layout_width="match_parent"
@@ -16,56 +16,40 @@
         android:textAlignment="center"
         android:layout_marginTop="150dp"
         android:textStyle="bold"
-        android:textSize="25sp"/>
-
+        android:textSize="22sp"/>
     <EditText
-        android:id="@+id/etLat"
-        android:layout_gravity="center"
+        android:id="@+id/etLatOff"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:textStyle="bold"
         android:hint="Latitude"/>
-
     <EditText
-        android:id="@+id/etLong"
-        android:layout_gravity="center"
+        android:id="@+id/etLongOff"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textStyle="bold"
-        android:hint="Longitude"/>
-
-    <EditText
-        android:id="@+id/etAddress"
         android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:hint="Long"/>
+    <EditText
+        android:id="@+id/etAddressOff"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:textStyle="bold"
         android:hint="Alamat Lengkap"/>
-
     <EditText
-        android:id="@+id/etSize"
-        android:layout_gravity="center"
+        android:id="@+id/etSizeOff"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:textStyle="bold"
         android:hint="Capacity"/>
-
-    <Spinner
-        android:id="@+id/spinnerDatabase"
-        android:layout_gravity="center"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
-
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnAddOff"
         android:layout_gravity="center"
         android:layout_width="350dp"
-        android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
-        android:text="Create"/>
+        android:text="create"/>
+
 </LinearLayout>

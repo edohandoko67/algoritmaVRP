@@ -4,32 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity2">
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/layout_distance"
-        android:background="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="vertical"
-        android:paddingVertical="12dp"
-        android:paddingHorizontal="16dp">
-        <TextView android:id="@+id/text_jarak_title"
-            android:textSize="16sp"
-            android:layout_marginBottom="2dp"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total Jarak" />
-        <TextView android:id="@+id/text_jarak_content"
-            android:textSize="24sp"
-            android:textFontWeight="100"
-            android:textColor="@color/black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="0 km" />
-    </LinearLayout>
-
+    tools:context=".activity.MainActivity2">
     <LinearLayout
         android:id="@+id/layout_distance"
         android:background="@color/white"

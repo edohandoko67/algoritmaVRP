@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.user.UserActivity">
-
+    tools:context=".UI.officer.OfficeActivity">
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="502dp"
@@ -33,7 +32,7 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/ivUser2"
+                android:id="@+id/ivUserOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="100dp"
@@ -44,7 +43,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvUser2"
+            android:id="@+id/tvUserOff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="70dp"
@@ -55,24 +54,11 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/fabUser"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@drawable/baseline_chat_24"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.954"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.51" />-->
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="362dp"
         android:layout_height="186dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
+        android:layout_margin="25dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,104 +66,46 @@
         app:layout_constraintHorizontal_bias="0.673"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.18">
+        app:layout_constraintVertical_bias="0.13">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ViewFlipper
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autoStart="true"
-                android:flipInterval="10000"
-                android:inAnimation="@android:anim/slide_in_left"
-                android:outAnimation="@android:anim/slide_out_right"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/title_header"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Petunjuk !"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:src="@drawable/garbage" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="-150dp"
-                        android:layout_marginRight="10dp"
-                        android:text="Mohon untuk dibaca terlebih dahulu.\nUntuk kapasitas angkut yaitu : \n3Kg \n5Kg \n10Kg"
-                        android:textSize="16sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_margin="10dp"
+                    android:src="@drawable/garbage" />
+            </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="10dp"
-                            android:text="Petunjuk Memasukkan Data"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:src="@drawable/report" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="-125dp"
-                        android:layout_marginRight="10dp"
-                        android:text="Untuk memasukkan data ke dalam sistem, Dimohon Anda harus memasukkan titik lokasi anda, dan juga berapa jumlah kapasitas sampah anda."
-                        android:textSize="16sp" />
-                </LinearLayout>
-            </ViewFlipper>
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="-110dp"
+                android:layout_marginEnd="10dp"
+                android:text="@string/text_header" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Menu Kategori"
@@ -191,21 +119,24 @@
         app:layout_constraintVertical_bias="0.055" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="0.244">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardView4"
-            android:layout_width="match_parent"
+            android:id="@+id/cardViewDataOff"
+            android:layout_width="170dp"
             android:layout_height="109dp"
-            android:layout_margin="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
             app:cardCornerRadius="10dp"
             app:cardElevation="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -216,45 +147,8 @@
             app:layout_constraintVertical_bias="0.655">
 
             <ImageView
-                android:id="@+id/imgUserJadwal"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="-15dp"
-                android:src="@drawable/truck" />
-
-            <TextView
+                android:id="@+id/imgData"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="25dp"
-                android:text="Tampilkan Rute Optimal"
-                android:textSize="18sp" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="40dp"
-                android:src="@drawable/line" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView5"
-            android:layout_width="match_parent"
-            android:layout_height="109dp"
-            android:layout_margin="25dp"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/linearLayout"
-            app:layout_constraintVertical_bias="0.655">
-
-            <ImageView
-                android:id="@+id/AddPenjemputan"
-                android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="-15dp"
@@ -265,8 +159,46 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="25dp"
-                android:text="Masukkan Lokasi Titik Penjemputan"
-                android:textSize="18sp" />
+                android:text="Input Data Jemput Baru"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/line" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewRuteOff"
+            android:layout_width="170dp"
+            android:layout_height="109dp"
+            android:layout_margin="25dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.655">
+
+            <ImageView
+                android:id="@+id/imgJadwal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-15dp"
+                android:src="@drawable/truck" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:text="Tampilkan Rute Optimal"
+                android:textSize="14sp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -276,4 +208,56 @@
                 android:src="@drawable/line" />
         </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.07999998">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView5"
+            android:layout_width="match_parent"
+            android:layout_height="109dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.655">
+
+            <TextView
+                android:id="@+id/tvSizeOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text=" kg"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="25dp"
+                android:text="Total Kapasitas per Minggu"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/line" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

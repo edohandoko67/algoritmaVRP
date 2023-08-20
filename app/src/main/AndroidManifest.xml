@@ -20,10 +20,97 @@
         android:theme="@style/Theme.NewTA"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity2"
+            android:name=".activity.MainActivity5"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.DatabaseActivityOfficer2"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DatabaseActivityOfficer"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".UI.officer.OfficerActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity4"
+            android:exported="false" />
+        <activity
+            android:name=".UI.officer.OfficerActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MenuRute.Rute.RuteGParseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MenuRute.Rute.RuteFParseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MenuRute.Rute.RuteEParseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MenuRute.Rute.RuteDParseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MenuRute.Rute.RuteCParseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MenuRute.Rute.RuteBParseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MenuRute.Rute.RuteAParseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MenuRute.MenuRuteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.officer.AddRuteOffActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.officer.OfficeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.InputHistoryActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".activity.StoryActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MenuRute.Rute.DummyActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DatabaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.user.UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.user.JadwalUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.InfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".chatbot.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".started.GetStartedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UI.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +121,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="${MAPS_KEY_API}" />
     </application>
 
 </manifest>

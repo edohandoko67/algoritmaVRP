@@ -33,4 +33,24 @@
         android:layout_height="wrap_content"
         tools:layout="@layout/activity_main2" />
 
+    <LinearLayout
+        android:id="@+id/layout_distance"
+        android:background="@color/white"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:paddingVertical="12dp"
+        android:gravity="bottom|end"
+        android:paddingHorizontal="16dp">
+        <TextView
+            android:id="@+id/latLngTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:layout_gravity="bottom"/>
+    </LinearLayout>
 </RelativeLayout>

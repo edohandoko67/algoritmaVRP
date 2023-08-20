@@ -32,5 +32,12 @@
         android:inputType="textPersonName"
         android:hint="Longitude" />
 
+    <EditText
+        android:id="@+id/updateNumber"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:inputType="number"
+        android:hint="Size" />
 
 </LinearLayout>

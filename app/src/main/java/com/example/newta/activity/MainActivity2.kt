@@ -1,4 +1,4 @@
-package com.example.newta
+package com.example.newta.activity
 
 import android.annotation.SuppressLint
 import android.content.pm.ApplicationInfo
@@ -7,14 +7,14 @@ import android.graphics.Color
 import android.location.Location
 import android.os.AsyncTask
 import android.os.Bundle
-import android.provider.ContactsContract.Data
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.newta.model.Distance
+import androidx.core.app.ActivityCompat
 import com.example.newta.model.LatLngModel
 import com.example.newta.model.MapDataModel
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -30,33 +30,64 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
+import kotlinx.android.synthetic.main.activity_main2.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
 import kotlin.math.roundToInt
+import android.Manifest;
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import com.example.newta.R
+import com.example.newta.UI.user.JadwalUserActivity
+import com.google.android.gms.maps.model.Marker
 
 
-class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
+class MainActivity2 : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private lateinit var mMap: GoogleMap
     private lateinit var btnNearestNeighbor: Button
     private lateinit var textJarakContent: TextView
     private lateinit var locationList: List<Location>
-    private var distance: Double = 0.0;
+    private var distance: Double = 0.0
+    private var duration: Int = 0
+    private lateinit var lastLocation: Location
+    private lateinit var fusedLocationClient: FusedLocationProviderClient
+
+    companion object {
+        const val LOCATION_PERMISSION_REQUEST_CODE = 123
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+        supportActionBar?.hide()
         val ai: ApplicationInfo = applicationContext.packageManager
             .getApplicationInfo(applicationContext.packageName, PackageManager.GET_META_DATA)
         val value = ai.metaData["com.google.android.geo.API_KEY"]
         val apiKey = value.toString()
 
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+            == PackageManager.PERMISSION_GRANTED) {
+            // Akses lokasi sudah diberikan
+            setupMap()
+        } else {
+            // Minta izin akses lokasi
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                JadwalUserActivity.LOCATION_PERMISSION_REQUEST_CODE
+            )
+        }
         if (!Places.isInitialized()) {
             Places.initialize(applicationContext, apiKey)
         }
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        //get current location
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
         val database = Firebase.database.reference
         btnNearestNeighbor = findViewById(R.id.btn_nearest_neighbor)
@@ -78,7 +109,7 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
                 //Menampilkan data terdekat pada Google Maps
                 for (nearestData in nearest) {
                     val data = LatLng(nearestData.latitude, nearestData.longitude)
-                    val title = nearestData.id
+                    val title = "${nearestData.name}, ${nearestData.capacity}"
                     val markerOptions = MarkerOptions().position(data).title(title)
                     mMap.addMarker(markerOptions)
                 }
@@ -105,8 +136,53 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
         })
     }
 
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == JadwalUserActivity.LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Izin akses lokasi diberikan
+                setupMap()
+            } else {
+                // Izin akses lokasi ditolak
+                Toast.makeText(this, "Izin akses lokasi ditolak.", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+    private fun setupMap() {
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+    }
+
+
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        //get current location
+        mMap.setOnMarkerClickListener(this)
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+            == PackageManager.PERMISSION_GRANTED) {
+            // Izin akses lokasi diberikan
+            mMap.isMyLocationEnabled = true
+
+            val fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+            fusedLocationClient.lastLocation
+                .addOnSuccessListener { location: Location? ->
+                    // Dapatkan lokasi saat ini
+                    location?.let {
+                        val currentLatLng = LatLng(location.latitude, location.longitude)
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
+                    }
+                }
+        } else {
+            // Izin akses lokasi ditolak
+            Toast.makeText(this, "Izin akses lokasi ditolak.", Toast.LENGTH_SHORT).show()
+        }
+        //setUpMap()
     }
 
     private fun nearestNeighbor(locations: List<LatLngModel>): MutableList<LatLngModel> {
@@ -176,13 +252,15 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
                     val legs = route.getJSONArray("legs");
 
                     for (j in 0 until legs.length()) {
-                        distance += route.getJSONArray("legs")
+                        val routeOnJPoint = route.getJSONArray("legs")
                             .getJSONObject(j)
+                        distance += routeOnJPoint
                             .getJSONObject("distance")
                             .getInt("value")
+                        duration += routeOnJPoint
+                            .getJSONObject("duration")
+                            .getInt("value")
                     }
-
-
 
                     val decodedPoints = decodePolyline(points)
                     path.addAll(decodedPoints);
@@ -190,12 +268,17 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
                 result.add(path)
 
                 textJarakContent.setText(
-                    (((distance / 1000) * 100.0).roundToInt()/100.0).toString() + " km")
+                    (((distance / 1000) * 100.0).roundToInt() / 100.0).toString() + " km"
+                )
+                text_waktu_content.setText(
+                    (((duration / 60) * 100.0).roundToInt() / 100.0).toString() + " min"
+                )
             } catch (e: Exception) {
                 e.printStackTrace()
             }
             return result
         }
+
 
         override fun onPostExecute(result: List<List<LatLng>>) {
             for (route in result) {
@@ -239,5 +322,8 @@ class MainActivity2 : AppCompatActivity(), OnMapReadyCallback {
         }
         return poly
     }
+
+    //get current location
+    override fun onMarkerClick(p0: Marker) = false
 }
 

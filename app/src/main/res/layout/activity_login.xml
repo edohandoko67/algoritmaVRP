@@ -90,20 +90,19 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="username"
+            android:hint="email"
             app:endIconMode="clear_text"
             android:textColorHint="@color/colorUtama"
             app:boxCornerRadiusBottomEnd="11dp"
             app:boxCornerRadiusBottomStart="11dp"
             app:boxCornerRadiusTopEnd="11dp"
             app:boxCornerRadiusTopStart="11dp"
-            app:boxStrokeColor="@color/Color_1"
             tools:ignore="HardcodedText">
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/username_ET"
+                android:id="@+id/email_ET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
+                android:inputType="textEmailAddress"
                 android:importantForAutofill="no"
                 android:maxLines="1"
                 android:textSize="15sp"
@@ -121,7 +120,6 @@
             app:boxCornerRadiusBottomStart="11dp"
             app:boxCornerRadiusTopEnd="11dp"
             app:boxCornerRadiusTopStart="11dp"
-            app:boxStrokeColor="@color/Color_1"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/Color_4"
             tools:ignore="HardcodedText">
@@ -145,16 +143,16 @@
             android:background="@drawable/loginbtn"
             />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/signup_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_rl"
-        android:layout_margin="20dp"
-        android:layout_marginTop="0dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
@@ -162,74 +160,73 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="username"
+            android:hint="nama"
             android:textColorHint="@color/colorUtama"
             app:boxCornerRadiusBottomEnd="11dp"
             app:boxCornerRadiusBottomStart="11dp"
             app:boxCornerRadiusTopEnd="11dp"
             app:boxCornerRadiusTopStart="11dp"
-            app:boxStrokeColor="@color/Color_1"
             app:endIconMode="clear_text"
             tools:ignore="HardcodedText">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/username_regis_ET"
+                android:id="@+id/names_regis_ET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:importantForAutofill="no"
                 android:inputType="text"
-                android:importantForAutofill="no"
                 android:maxLines="1"
                 android:textSize="15sp"
-                tools:ignore="LabelFor,TextFields,SpeakableTextPresentCheck"/>
+                tools:ignore="LabelFor,TextFields,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="nama lengkap"
+            android:hint="email"
             android:textColorHint="@color/colorUtama"
             app:boxCornerRadiusBottomEnd="11dp"
             app:boxCornerRadiusBottomStart="11dp"
             app:boxCornerRadiusTopEnd="11dp"
             app:boxCornerRadiusTopStart="11dp"
-            app:boxStrokeColor="@color/Color_1"
             app:endIconMode="clear_text"
             tools:ignore="HardcodedText">
+
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/name_regis_ET"
+                android:id="@+id/email_regis_ET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
                 android:drawablePadding="7dp"
                 android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:textSize="15sp"
-                tools:ignore="LabelFor,TextFields,SpeakableTextPresentCheck"/>
+                tools:ignore="LabelFor,TextFields,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="alamat"
-            android:textColorHint="@color/colorUtama"
-            app:boxCornerRadiusBottomEnd="11dp"
-            app:boxCornerRadiusBottomStart="11dp"
-            app:boxCornerRadiusTopEnd="11dp"
-            app:boxCornerRadiusTopStart="11dp"
-            app:boxStrokeColor="@color/Color_1"
-            app:endIconMode="clear_text"
-            tools:ignore="HardcodedText">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/address_regis_ET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:drawablePadding="7dp"
-                android:importantForAutofill="no"
-                android:maxLines="1"
-                android:textSize="15sp"
-                tools:ignore="LabelFor,TextFields,SpeakableTextPresentCheck"/>
-        </com.google.android.material.textfield.TextInputLayout>
+        <!--        <com.google.android.material.textfield.TextInputLayout-->
+        <!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:hint="alamat"-->
+        <!--            android:textColorHint="@color/colorUtama"-->
+        <!--            app:boxCornerRadiusBottomEnd="11dp"-->
+        <!--            app:boxCornerRadiusBottomStart="11dp"-->
+        <!--            app:boxCornerRadiusTopEnd="11dp"-->
+        <!--            app:boxCornerRadiusTopStart="11dp"-->
+        <!--            app:endIconMode="clear_text"-->
+        <!--            tools:ignore="HardcodedText">-->
+        <!--            <com.google.android.material.textfield.TextInputEditText-->
+        <!--                android:id="@+id/address_regis_ET"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:inputType="textPersonName"-->
+        <!--                android:drawablePadding="7dp"-->
+        <!--                android:importantForAutofill="no"-->
+        <!--                android:maxLines="1"-->
+        <!--                android:textSize="15sp"-->
+        <!--                tools:ignore="LabelFor,TextFields,SpeakableTextPresentCheck"/>-->
+        <!--        </com.google.android.material.textfield.TextInputLayout>-->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -240,7 +237,6 @@
             app:boxCornerRadiusBottomStart="11dp"
             app:boxCornerRadiusTopEnd="11dp"
             app:boxCornerRadiusTopStart="11dp"
-            app:boxStrokeColor="@color/Color_1"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/Color_4"
             tools:ignore="HardcodedText">
@@ -256,12 +252,48 @@
                 android:textSize="15sp"
                 tools:ignore="LabelFor,TextFields,SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/role_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/radio_admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:text="Admin" />
+
+                <RadioButton
+                    android:id="@+id/radio_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:text="User" />
+                <RadioButton
+                    android:id="@+id/radio_officer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:text="Officer" />
+
+
+            </RadioGroup>
+
+        </LinearLayout>
+
         <ImageButton
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:background="@drawable/signupbtn"
             android:layout_marginTop="21dp"
-            tools:ignore="ContentDescription,ImageContrastCheck,MissingConstraints,SpeakableTextPresentCheck"/>
+            android:background="@drawable/signupbtn"
+            tools:ignore="ContentDescription,ImageContrastCheck,MissingConstraints,SpeakableTextPresentCheck" />
     </LinearLayout>
 </RelativeLayout>

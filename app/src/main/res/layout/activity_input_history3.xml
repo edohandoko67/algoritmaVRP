@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.InputHistoryActivity3">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:background="@drawable/statistics"
+        android:orientation="vertical">
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tambah Data Mingguan"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textSize="22sp"/>
+    <EditText
+        android:id="@+id/etWeek"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="number"
+        android:hint="Minggu ke-"/>
+    <EditText
+        android:id="@+id/etSizeSampah"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="number"
+        android:hint="Total Sampah Mingguan"/>
+    <EditText
+        android:id="@+id/etTanggal"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="Tanggal"
+        android:inputType="date" />
+    <EditText
+        android:id="@+id/etNopol"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="No Plat"/>
+    <EditText
+        android:id="@+id/etJarak"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="number"
+        android:hint="Jarak (km)"/>
+    <EditText
+        android:id="@+id/etWaktu"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="number"
+        android:hint="Waktu (min)"/>
+    <EditText
+        android:id="@+id/etBahanBakar"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="number"
+        android:hint="Jumlah Bahan Bakar (L)"/>
+    <EditText
+        android:id="@+id/etPrice"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:inputType="number"
+        android:hint="Harga Bahan Bakar"/>
+    <Button
+        android:id="@+id/btnAddStori"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="create"/>
+</LinearLayout>

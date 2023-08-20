@@ -18,6 +18,24 @@
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:background="@drawable/user"/>
+
+        <TextView
+            android:id="@+id/tvNamaPengguna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="nama"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/tvEmailPengguna"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:text="email"/>
+
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

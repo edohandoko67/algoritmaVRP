@@ -3,6 +3,7 @@ package com.example.newta.Adapter
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.graphics.text.TextRunShaper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,6 +21,7 @@ class UserAdapter(val userList: List<LatLngModel>, val context: Context): Recycl
         val userName = itemView.findViewById(R.id.textView1) as TextView
         val lat = itemView.findViewById(R.id.textView2) as TextView
         val long = itemView.findViewById(R.id.textView3) as TextView
+        val sizes = itemView.findViewById(R.id.textView4) as TextView
         val edit = itemView.findViewById(R.id.editimage) as ImageView
         val delete = itemView.findViewById(R.id.deleteimage) as ImageView
     }
@@ -37,6 +39,7 @@ class UserAdapter(val userList: List<LatLngModel>, val context: Context): Recycl
         holder.userName.text = userList.get(position).name
         holder.lat.text = userList.get(position).latitude.toString()
         holder.long.text = userList.get(position).longitude.toString()
+        holder.sizes.text = userList.get(position).capacity.toString()
 
         holder.edit.setOnClickListener {
             val perItemPosition = userList.get(position)
@@ -57,10 +60,12 @@ class UserAdapter(val userList: List<LatLngModel>, val context: Context): Recycl
         val name = view.findViewById<EditText>(R.id.editText1)
         val lat = view.findViewById<EditText>(R.id.updateLat)
         val long = view.findViewById<EditText>(R.id.updateLong)
+        val size = view.findViewById<EditText>(R.id.updateNumber)
 
         name.setText(perItemPosition.name)
         lat.setText(perItemPosition.latitude.toString())
         long.setText(perItemPosition.longitude.toString())
+        size.setText(perItemPosition.capacity.toString())
 
         builder.setView(view)
         builder.setPositiveButton("Update", object : DialogInterface.OnClickListener {
@@ -69,14 +74,15 @@ class UserAdapter(val userList: List<LatLngModel>, val context: Context): Recycl
                 val names = name.text.toString()
                 val lats = lat.text.toString().toDouble()
                 val longs = long.text.toString().toDouble()
+                val sizes = size.text.toString().toInt()
 
-                if (names.isEmpty() && lats.isNaN() && longs.isNaN()){
+                if (names.isEmpty() && lats.isNaN() && longs.isNaN() ){
                     name.error = "Isi data semua"
                     name.requestFocus()
                     return
                 }
                 else {
-                    val std_data = LatLngModel(perItemPosition.user_id, lats, longs, names)
+                    val std_data = LatLngModel(perItemPosition.user_id, lats, longs, names, sizes)
                     users.child(perItemPosition.user_id).setValue(std_data)
                     Toast.makeText(context, "Data Uploaded", Toast.LENGTH_SHORT).show()
                 }
