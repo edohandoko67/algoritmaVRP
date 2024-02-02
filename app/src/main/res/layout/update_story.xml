@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="30dp"
+    android:layout_margin="10dp"
+    android:layout_height="wrap_content">
+
+
+    <EditText
+        android:id="@+id/updateWeek"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:hint="Minggu ke -" />
+
+
+    <EditText
+        android:id="@+id/updateTotal"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:hint="Total" />
+
+    <EditText
+        android:id="@+id/updateTanggal"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="Tanggal"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/updatePlat"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:hint="Plat" />
+
+    <EditText
+        android:id="@+id/updateJarak"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:inputType="number"
+        android:hint="Jarak" />
+    <EditText
+        android:id="@+id/updateTime"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:inputType="number"
+        android:hint="Waktu" />
+    <EditText
+        android:id="@+id/updateBahan"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:inputType="text"
+        android:hint="Bahan Bakar" />
+    <EditText
+        android:id="@+id/updatePriceBahan"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:inputType="number"
+        android:hint="Harga Bahan Bakar" />
+</LinearLayout>

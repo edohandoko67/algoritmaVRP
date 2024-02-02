@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity3">
+    <LinearLayout
+        android:id="@+id/layout_distance"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16dp">
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:orientation="vertical"
+            android:paddingVertical="5dp"
+            android:paddingHorizontal="16dp">
+            <TextView android:id="@+id/text_jarak_title"
+                android:textSize="16sp"
+                android:layout_marginBottom="2dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Jarak" />
+            <TextView android:id="@+id/text_jarak_content"
+                android:textSize="24sp"
+                android:textFontWeight="100"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0 km" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:orientation="vertical"
+            android:paddingVertical="5dp"
+            android:paddingHorizontal="16dp">
+            <TextView android:id="@+id/text_waktu_title"
+                android:textSize="16sp"
+                android:layout_marginBottom="2dp"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Waktu" />
+            <TextView android:id="@+id/text_waktu_content"
+                android:textSize="24sp"
+                android:textFontWeight="100"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0 min" />
+        </LinearLayout>
+    </LinearLayout>
+    <fragment
+        android:id="@+id/map3"
+        android:layout_below="@id/layout_distance"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/activity_main2" />
+
+    <Button
+        android:id="@+id/btn_nearest_neighbor3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Find Nearest Neighbor"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
